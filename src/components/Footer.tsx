@@ -1,4 +1,4 @@
-import { LinkedinLogo, InstagramLogo, TwitterLogo } from "phosphor-react";
+import { LinkedinLogo, InstagramLogo, X } from "phosphor-react";
 
 const Footer = () => {
   return (
@@ -48,13 +48,13 @@ const Footer = () => {
               <InstagramLogo size={24} weight="fill" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Twitter/X"
+              aria-label="X"
             >
-              <TwitterLogo size={24} weight="fill" />
+              <X size={24} weight="bold" />
             </a>
           </div>
         </div>
