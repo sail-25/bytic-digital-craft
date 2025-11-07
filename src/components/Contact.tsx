@@ -75,7 +75,12 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="space-y-6"
         >
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
             <Input
               type="text"
               placeholder="Name"
@@ -84,9 +89,14 @@ const Contact = () => {
               className="border-border focus:border-foreground transition-colors"
               required
             />
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
             <Input
               type="email"
               placeholder="Email"
@@ -95,9 +105,14 @@ const Contact = () => {
               className="border-border focus:border-foreground transition-colors"
               required
             />
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
             <Textarea
               placeholder="Message"
               value={formData.message}
@@ -105,17 +120,24 @@ const Contact = () => {
               className="border-border focus:border-foreground transition-colors min-h-[150px]"
               required
             />
-          </div>
+          </motion.div>
 
-          <Button
-            type="submit"
-            variant="default"
-            size="lg"
-            className="w-full bg-foreground text-background hover:bg-foreground/90 transition-colors"
-            disabled={isSubmitting}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </Button>
+            <Button
+              type="submit"
+              variant="default"
+              size="lg"
+              className="w-full bg-foreground text-background hover:bg-foreground/90 transition-colors"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </motion.div>
         </motion.form>
       </div>
     </section>

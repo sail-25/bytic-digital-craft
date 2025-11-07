@@ -42,14 +42,30 @@ const Services = () => {
           {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-card border border-border rounded-lg p-8 space-y-4 hover:shadow-md transition-all duration-300"
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.15, 
+                  ease: [0.25, 0.1, 0.25, 1],
+                  scale: { type: "spring", stiffness: 300, damping: 20 }
+                }}
+                whileHover={{ 
+                  y: -12, 
+                  scale: 1.02,
+                  transition: { duration: 0.3, ease: "easeOut" } 
+                }}
+                className="bg-card border border-border rounded-lg p-8 space-y-4 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
               >
-              <service.icon size={40} weight="thin" className="text-foreground" />
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 + 0.2, type: "spring" }}
+              >
+                <service.icon size={40} weight="thin" className="text-foreground" />
+              </motion.div>
               <h3 className="text-xl font-semibold">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{service.description}</p>
             </motion.div>

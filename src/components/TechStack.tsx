@@ -49,19 +49,42 @@ const TechStack = () => {
           {techCategories.map((tech, index) => (
             <motion.div
               key={tech.category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, rotateY: 15 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-card border border-border rounded-lg p-6 space-y-3 hover:shadow-sm transition-shadow duration-300"
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1, 
+                ease: [0.25, 0.1, 0.25, 1],
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                boxShadow: "0 10px 30px -10px rgba(0,0,0,0.2)",
+                transition: { duration: 0.3 } 
+              }}
+              className="bg-card border border-border rounded-lg p-6 space-y-3 hover:border-primary/30 transition-all duration-300"
             >
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+              <motion.h3 
+                className="text-sm font-semibold uppercase tracking-wide text-muted-foreground"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.2 }}
+              >
                 {tech.category}
-              </h3>
-              <p className="text-foreground leading-relaxed">
+              </motion.h3>
+              <motion.p 
+                className="text-foreground leading-relaxed"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.3 }}
+              >
                 {tech.items.join(", ")}
-              </p>
+              </motion.p>
             </motion.div>
           ))}
         </div>

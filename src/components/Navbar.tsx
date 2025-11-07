@@ -1,6 +1,27 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById(to);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <motion.button
+      onClick={handleClick}
+      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {children}
+    </motion.button>
+  );
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -11,10 +32,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <motion.nav
@@ -43,24 +60,9 @@ const Navbar = () => {
         </motion.button>
 
         <div className="flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection('services')}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Services
-          </button>
-          <button
-            onClick={() => scrollToSection('showcase')}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Work
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Contact
-          </button>
+          <NavLink to="services">Services</NavLink>
+          <NavLink to="showcase">Work</NavLink>
+          <NavLink to="contact">Contact</NavLink>
         </div>
       </div>
     </motion.nav>
