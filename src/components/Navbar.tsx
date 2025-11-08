@@ -55,12 +55,14 @@ const Navbar = () => {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            Bytic
+            Bytic Labs
           </span>
         </motion.button>
 
         <div className="flex items-center gap-8">
           <NavLink to="services">Services</NavLink>
+          <NavLink to="why-us">Why Us</NavLink>
+          <NavLink to="clients">Clients</NavLink>
           <NavLink to="showcase">Work</NavLink>
           <NavLink to="contact">Contact</NavLink>
         </div>
