@@ -5,22 +5,26 @@ const services = [
   {
     icon: Globe,
     title: "Web Development",
-    description: "Next-gen apps built with Next.js + TypeScript.",
+    description:
+      "We craft fast, scalable web platforms built on modern frameworks — precise, secure, and made to perform across any device.",
   },
   {
     icon: Storefront,
     title: "eCommerce Systems",
-    description: "WooCommerce, Shopify & Magento integrations.",
+    description:
+      "Custom, conversion-ready storefronts that adapt to any platform or stack — designed for seamless management and growth.",
   },
   {
     icon: Palette,
     title: "Product Design",
-    description: "Responsive design systems in Figma + Framer.",
+    description:
+      "Component-driven, interactive design systems — responsive, accessible, and consistent across every user touchpoint.",
   },
   {
     icon: Robot,
     title: "Automation & AI",
-    description: "Smart workflows using OpenAI, Zapier, Make, n8n.",
+    description:
+      "Smart automation and AI integrations that link tools, eliminate repetition, and help teams move faster with clarity.",
   },
 ];
 
