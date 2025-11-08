@@ -16,18 +16,6 @@ const showcaseItems = {
       description: "Youth leadership platform",
       thumbnail: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
     },
-    {
-      title: "publishing-institute.org",
-      url: "https://publishing-institute.org",
-      description: "Educational publishing institute",
-      thumbnail: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop",
-    },
-    {
-      title: "lead-africa.com",
-      url: "https://lead-africa.com",
-      description: "Leadership development network",
-      thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop",
-    },
   ],
   projects: [
     {
