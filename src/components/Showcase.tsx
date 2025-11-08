@@ -34,7 +34,7 @@ const showcaseItems = {
       title: "NoFx AI",
       url: "https://nofxai.com",
       description: "AI-powered operating system framework for agentic forex trading- a contributive opensource system",
-      thumbnail: "https://nofxai.com"  
+      thumbnail: "https://nofxai.com",
       preview: aiLandingPreview,
     },
     {
