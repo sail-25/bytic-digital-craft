@@ -1,37 +1,31 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
-import clientsBg from "@/assets/clients-bg.jpg";
+import { Card, CardContent } from "@/components/ui/card";
+import individualImage from "@/assets/client-individual.jpg";
+import startupsImage from "@/assets/client-startups.jpg";
+import enterprisesImage from "@/assets/client-enterprises.jpg";
 
-const testimonials = [
+const clientTypes = [
   {
-    quote: "Bytic Labs transformed our vision into a powerful digital platform. Their expertise and dedication are unmatched.",
-    author: "Sarah Johnson",
-    role: "CEO, TechStart Inc",
+    image: individualImage,
+    title: "Individual",
+    description: "Entrepreneurs and solo founders building their vision into reality",
   },
   {
-    quote: "Working with Bytic Labs was seamless. They delivered beyond our expectations and on schedule.",
-    author: "Michael Chen",
-    role: "Founder, InnovateCo",
+    image: startupsImage,
+    title: "Startups",
+    description: "Growing teams scaling their products and reaching new markets",
   },
   {
-    quote: "The team's technical skills and business acumen helped us scale our platform to thousands of users.",
-    author: "Emily Rodriguez",
-    role: "CTO, GrowthHub",
+    image: enterprisesImage,
+    title: "Enterprises",
+    description: "Established organizations modernizing their digital infrastructure",
   },
 ];
 
 const Clients = () => {
   return (
-    <section id="clients" className="py-20 px-6 bg-muted/50 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url(${clientsBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="clients" className="py-20 px-6 bg-background">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,28 +33,34 @@ const Clients = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Clients</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Don't just take our word for it - hear from the businesses we've helped succeed
+            We partner with visionaries across every stage of growth
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {clientTypes.map((client, index) => (
             <motion.div
-              key={index}
+              key={client.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card border border-border rounded-lg p-8 relative"
             >
-              <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6" />
-              <p className="text-muted-foreground mb-6 relative z-10">"{testimonial.quote}"</p>
-              <div>
-                <p className="font-semibold">{testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-              </div>
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={client.image} 
+                    alt={client.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6 text-center">
+                  <h3 className="text-2xl font-semibold mb-3">{client.title}</h3>
+                  <p className="text-muted-foreground">{client.description}</p>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
