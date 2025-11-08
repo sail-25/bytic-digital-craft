@@ -29,13 +29,13 @@ const Hero = () => {
         className="relative z-10 max-w-4xl mx-auto text-center space-y-8"
       >
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-          Building precise, scalable
+          Building awesome
           <br />
           digital systems and experiences.
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Bytic is a tech studio crafting modern web products, automations, and digital infrastructure for teams and brands that move fast.
+          Bytic is a tech studio crafting modern web products, automations, and digital infrastructure for brands that move fast.
         </p>
 
         <motion.div
