@@ -29,7 +29,7 @@ const Hero = () => {
         className="relative z-10 max-w-4xl mx-auto text-center space-y-8"
       >
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-          Building awesome
+          Building
           <br />
           digital systems and experiences.
         </h1>
